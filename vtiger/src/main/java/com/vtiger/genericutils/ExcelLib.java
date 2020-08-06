@@ -34,6 +34,11 @@ public class ExcelLib {
  
     // This method has two parameters: "Test data excel file name" and "Excel sheet name"
     // It creates FileInputStream and set excel file and excel sheet to excelWBook and excelWSheet variables.
+    /**
+     * 
+     * @param sheetName
+     * @throws Throwable
+     */
     public void setExcelFileSheet(String sheetName) throws Throwable {
             // Open the Excel file
             FileInputStream ExcelFile = new FileInputStream(filePath);
@@ -43,6 +48,12 @@ public class ExcelLib {
  
     //This method reads the test data from the Excel cell.
     //We are passing row number and column number as parameters.
+    /**
+     * 
+     * @param RowNum
+     * @param ColNum
+     * @return
+     */
     public String getCellData(int RowNum, int ColNum) {
             cell = excelWSheet.getRow(RowNum).getCell(ColNum);
             String cellData = cell.getStringCellValue();
@@ -50,11 +61,23 @@ public class ExcelLib {
     }
  
     //This method takes row number as a parameter and returns the data of given row number.
+    /**
+     * 
+     * @return int
+     */
     public int getRowCount() {
             return excelWSheet.getLastRowNum()+1;
     }
  
     //This method gets excel file, row and column number and set a value to the that cell.
+    /**
+     * 
+     * @param RowNum
+     * @param ColNum
+     * @param value
+     * @throws Throwable
+     */
+    
     public void setCellData(int RowNum, int ColNum, String value) throws Throwable {
             row = excelWSheet.getRow(RowNum);
             cell = row.getCell(ColNum);
