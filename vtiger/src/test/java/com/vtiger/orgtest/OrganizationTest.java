@@ -1,7 +1,5 @@
 package com.vtiger.orgtest;
 
-import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -39,7 +37,7 @@ public class OrganizationTest extends BaseClass  {
 		OrganizationInfo orgInfo=new OrganizationInfo(driver);
 		String actOrgName = orgInfo.getOrgSucessfullMsgText().getText();
 
-		AssertJUnit.assertTrue(actOrgName.contains(orgName));
+		Assert.assertTrue(actOrgName.contains(orgName));
 
 		
 		
@@ -70,7 +68,7 @@ public class OrganizationTest extends BaseClass  {
 		OrganizationInfo orgInfo=new OrganizationInfo(driver);
 		String actOrgName = orgInfo.getOrgSucessfullMsgText().getText();
 
-		AssertJUnit.assertTrue(actOrgName.contains(orgName));		
+		Assert.assertTrue(actOrgName.contains(orgName));		
 		
 		/*step 7 : Delete the Org*/
 		wLib.waitForElementandClick(hp.getOrgLink(), driver);
@@ -89,7 +87,7 @@ public class OrganizationTest extends BaseClass  {
 
 		wLib.waitForElementandClick(orgp.getSearchBtn(), driver);
 
-		AssertJUnit.assertTrue(orgp.getNoOrg().getText().contains("No Organization Found"));
+		Assert.assertTrue(orgp.getNoOrg().getText().contains("No Organization Found"));
 	}
 
 }

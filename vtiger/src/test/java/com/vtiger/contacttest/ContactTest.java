@@ -1,10 +1,7 @@
 package com.vtiger.contacttest;
 
 import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
 import org.testng.Assert;
-import org.testng.annotations.Test;
-
 import com.vtiger.genericutils.BaseClass;
 import com.vtiger.objectrepository.ContactInfoPage;
 import com.vtiger.objectrepository.Contacts;
@@ -44,7 +41,7 @@ public class ContactTest extends BaseClass {
 		OrganizationInfo orgInfo=new OrganizationInfo(driver);
 		String actOrgName = orgInfo.getOrgSucessfullMsgText().getText();
 
-		AssertJUnit.assertTrue(actOrgName.contains(orgName));
+		Assert.assertTrue(actOrgName.contains(orgName));
 		
 		/* step 6 : navigate to Contact page */
 		//Home hp1 = new Home(driver);
@@ -62,7 +59,7 @@ public class ContactTest extends BaseClass {
 		ContactInfoPage cnctInfo=new ContactInfoPage(driver);
 		String contact_name = cnctInfo.getContSucessfullMsgText().getText();
 
-		AssertJUnit.assertTrue(contact_name.contains(contactLastName));
+		Assert.assertTrue(contact_name.contains(contactLastName));
 
 	}
 
@@ -90,7 +87,7 @@ public class ContactTest extends BaseClass {
 		OrganizationInfo orgInfo=new OrganizationInfo(driver);
 		String actOrgName = orgInfo.getOrgSucessfullMsgText().getText();
 
-		AssertJUnit.assertTrue(actOrgName.contains(orgName));
+		Assert.assertTrue(actOrgName.contains(orgName));
 		
 		/* step 6 : navigate to Contact page */
 		//Home hp1 = new Home(driver);
@@ -108,10 +105,10 @@ public class ContactTest extends BaseClass {
 		ContactInfoPage cnctInfo=new ContactInfoPage(driver);
 		String contact_name = cnctInfo.getContSucessfullMsgText().getText();
 
-		AssertJUnit.assertTrue(contact_name.contains(contactLastName));
+		Assert.assertTrue(contact_name.contains(contactLastName));
 		String act_tableData1 = cp.findOrg(orgName).getText();
 
-		AssertJUnit.assertTrue(act_tableData1.contains(orgName));
+		Assert.assertTrue(act_tableData1.contains(orgName));
 
 		/* Step 10: Delete the Contact */
 		wLib.waitForElementandClick(hp.getContactLink(), driver);
@@ -130,7 +127,7 @@ public class ContactTest extends BaseClass {
 
 		wLib.waitForElementandClick(cp.getSubmit(), driver);
 
-		AssertJUnit.assertTrue(cp.getNoContact().getText().contains("No Contact Found"));
+		Assert.assertTrue(cp.getNoContact().getText().contains("No Contact Found"));
 
 		/* Step 10: Navigate to Organization and Search and Verify the organization */
 		wLib.waitForElementandClick(hp.getOrgLink(),driver);
@@ -142,7 +139,7 @@ public class ContactTest extends BaseClass {
 		wLib.waitForElementandClick(orgp.getSearchBtn(), driver);
 		String act_tableData2 = orgp.getOrg(orgName).getText();
 
-		AssertJUnit.assertTrue(act_tableData2.contains(orgName));
+		Assert.assertTrue(act_tableData2.contains(orgName));
 
 		/* Step 11: Delete the organization */
 		wLib.waitForElementandClick(hp.getOrgLink(), driver);
@@ -161,7 +158,7 @@ public class ContactTest extends BaseClass {
 
 		wLib.waitForElementandClick(orgp.getSearchBtn(), driver);
 
-		AssertJUnit.assertTrue(orgp.getNoOrg().getText().contains("No Organization Found"));
+		Assert.assertTrue(orgp.getNoOrg().getText().contains("No Organization Found"));
 
 		/* Step 13: Verify the deleted contact again */
 
@@ -173,7 +170,7 @@ public class ContactTest extends BaseClass {
 
 		wLib.waitForElementandClick(cp.getSubmit(), driver);
 
-		AssertJUnit.assertTrue(cp.getNoContact().getText().contains("No Contact Found"));
+		Assert.assertTrue(cp.getNoContact().getText().contains("No Contact Found"));
 
 	}
 
